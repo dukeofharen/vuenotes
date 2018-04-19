@@ -1,6 +1,6 @@
 <template>
-  <div class="note">
-    <h1>{{title}}</h1>
+  <div class="note col-md-12 row">
+    <strong>{{title}}</strong>
   </div>
 </template>
 
@@ -15,4 +15,11 @@ export default {
 </script>
 
 <style scoped>
+.note {
+    width: 100%;
+    color: #FFFFFF;
+    background-color: #00AAFF;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
 </style>

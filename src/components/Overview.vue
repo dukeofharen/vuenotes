@@ -13,6 +13,7 @@ export default {
     Note
   },
   data () {
+    // TODO return this from a data source / local storage.
     return {
       notes:[{
         id: 1,
