@@ -6,24 +6,29 @@
     <div class="col-md-6">
         <textarea v-model="content" class="form-control"></textarea>
     </div>
-    <div class="col-md-6">
-        {{content}}
+    <div class="col-md-6" v-html="renderedContent"></div>
+    <div class="col-md-12">
+        <button class="btn btn-primary">Save</button>
     </div>
   </div>
 </template>
 
 <script>
+const md = require('markdown-it')()
+
 export default {
   name: "NoteEditor",
   data() {
     return {
       title: '',
-      content: ''
+      content: '',
+      renderedContent: ''
     };
   },
   watch: {
-      content: (val) => {
-      }
+    content (val) {
+      this.renderedContent = md.render(val)
+    }
   }
 };
 </script>
@@ -32,5 +37,9 @@ export default {
 .title {
   width: 100%;
   margin-bottom: 10px;
+}
+
+.btn {
+    margin-top: 10px;
 }
 </style>
