@@ -8,13 +8,15 @@ import 'bootstrap/dist/css/bootstrap-reboot.css'
 
 // Import components
 import Overview from './components/Overview'
+import NoteEditor from './components/NoteEditor'
 
 // Add components to router
 const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    { path: '/', component: Overview }
+    { path: '/', component: Overview },
+    { path: '/addNote', component: NoteEditor }
   ]
 })
 
