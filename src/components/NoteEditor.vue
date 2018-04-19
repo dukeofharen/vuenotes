@@ -1,6 +1,9 @@
 <template>
   <div class="note-editor col-md-12 row">
     <div class="col-md-12">
+      <button class="btn btn-primary" v-on:click="back">Back to overview</button>
+    </div>
+    <div class="col-md-12">
         <input type="text" v-model="title" class="form-control title" placeholder="Title..." />
     </div>
     <div class="col-md-6">
@@ -49,6 +52,9 @@ export default {
       }
       addOrUpdateNote(this.id, note)
       this.$router.push({ name: 'Overview' })
+    },
+    back () {
+      this.$router.push({ name: 'Overview' })
     }
   },
   watch: {
@@ -67,5 +73,6 @@ export default {
 
 .btn {
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 </style>
