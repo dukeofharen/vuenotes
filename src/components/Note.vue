@@ -1,5 +1,5 @@
 <template>
-  <div class="note col-md-12 row">
+  <div class="note col-md-12 row" v-on:click="noteClick(id)">
     <strong>{{title}}</strong>
   </div>
 </template>
@@ -8,8 +8,14 @@
 export default {
   name: "Note",
   props: {
+    id: Number,
     title: String,
     content: String
+  },
+  methods: {
+    noteClick (id) {
+      this.$router.push({ name: 'EditNote', params: { id } })
+    }
   }
 };
 </script>
@@ -21,5 +27,6 @@ export default {
     background-color: #00AAFF;
     margin-bottom: 10px;
     font-size: 1.5em;
+    cursor: pointer;
 }
 </style>

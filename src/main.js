@@ -15,8 +15,9 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    { path: '/', component: Overview },
-    { path: '/addNote', component: NoteEditor }
+    { path: '/', component: Overview, name: 'Overview' },
+    { path: '/addNote', component: NoteEditor, name: 'AddNote' },
+    { path: '/editNote/:id', component: NoteEditor, name: 'EditNote' }
   ]
 })
 

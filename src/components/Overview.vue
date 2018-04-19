@@ -1,10 +1,12 @@
 <template>
   <div class="overview">
+    <button class="btn btn-primary" v-on:click="add">Add note</button>
     <Note v-for="note in notes" v-bind:key="note.id" v-bind="note" />
   </div>
 </template>
 
 <script>
+import { getNotes } from './../data/storage'
 import Note from './Note'
 
 export default {
@@ -13,25 +15,23 @@ export default {
     Note
   },
   data () {
-    // TODO return this from a data source / local storage.
     return {
-      notes:[{
-        id: 1,
-        title: 'Note 1',
-        contents: '# This is note 1'
-      },
-      {
-        id: 2,
-        title: 'Note 2',
-        contents: '# This is note 2'
-      }]
+      notes: []
     }
   },
   created () {
-
+    this.notes = getNotes()
+  },
+  methods: {
+    add () {
+      this.$router.push({ name: 'AddNote' })
+    }
   }
 }
 </script>
 
 <style scoped>
+.btn {
+  margin-bottom: 10px;
+}
 </style>

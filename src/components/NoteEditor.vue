@@ -8,22 +8,48 @@
     </div>
     <div class="col-md-6" v-html="renderedContent"></div>
     <div class="col-md-12">
-        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-primary" v-on:click="save">Save</button>
     </div>
   </div>
 </template>
 
 <script>
 const md = require('markdown-it')()
+import { getNote, addOrUpdateNote } from './../data/storage'
 
 export default {
   name: "NoteEditor",
   data() {
     return {
+      id: 0,
       title: '',
       content: '',
       renderedContent: ''
     };
+  },
+  created () {
+    let id = parseInt(this.$route.params.id)
+    if(id) {
+      // If id set; edit mode.
+      this.id = id
+      let note = getNote(id)
+      this.title = note.title
+      this.content = note.content
+    } else {
+      // If id not set; add mode.
+      this.id = (new Date()).getTime()
+    }
+  },
+  methods: {
+    save () {
+      let note = {
+        id: this.id,
+        title: this.title,
+        content: this.content
+      }
+      addOrUpdateNote(this.id, note)
+      this.$router.push({ name: 'Overview' })
+    }
   },
   watch: {
     content (val) {
