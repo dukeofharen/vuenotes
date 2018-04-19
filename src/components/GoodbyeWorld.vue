@@ -1,12 +1,12 @@
 <template>
   <div class="hello">
-    JA MOI!
+    JA DOEI!
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld'
+  name: 'GoodbyeWorld'
 }
 </script>
 
