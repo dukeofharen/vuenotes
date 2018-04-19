@@ -7,16 +7,14 @@ import 'bootstrap/dist/css/bootstrap-grid.css'
 import 'bootstrap/dist/css/bootstrap-reboot.css'
 
 // Import components
-import HelloWorld from './components/HelloWorld'
-import GoodbyeWorld from './components/GoodbyeWorld'
+import Overview from './components/Overview'
 
 // Add components to router
 const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    { path: '/', component: HelloWorld },
-    { path: '/bye', component: GoodbyeWorld }
+    { path: '/', component: Overview }
   ]
 })
 
